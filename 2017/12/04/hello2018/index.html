@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>解决在苹果手机应用被挂起60秒倒计时停止的问题 | 知行合一笃行日新</title>
+    <title>Hello 2018 | 知行合一笃行日新</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zxyango">
     
 
     
-    <meta name="description" content="相信很多app里都会有获取手机验证码的按钮，验证码获取成功后这个按钮会进入60秒倒计时状态，倒计时期间按钮是不可点击的，在前端起到限制了用户获取成功后频繁请求重复获取的作用。  常规实现方式在H5页面里我们最容易想到常规的实现方式如下（这里提供的代码只是最基本的能说明问题用来演示用的Demo）：123456789101">
+    <meta name="description" content="2018,新的起点新的开始">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决在苹果手机应用被挂起60秒倒计时停止的问题">
-<meta property="og:url" content="http://yoursite.com/2017/12/04/60seconds/index.html">
+<meta property="og:title" content="Hello 2018">
+<meta property="og:url" content="http://yoursite.com/2017/12/04/hello2018/index.html">
 <meta property="og:site_name" content="知行合一笃行日新">
-<meta property="og:description" content="相信很多app里都会有获取手机验证码的按钮，验证码获取成功后这个按钮会进入60秒倒计时状态，倒计时期间按钮是不可点击的，在前端起到限制了用户获取成功后频繁请求重复获取的作用。  常规实现方式在H5页面里我们最容易想到常规的实现方式如下（这里提供的代码只是最基本的能说明问题用来演示用的Demo）：1234567891011121314151617181920&amp;lt;script&amp;gt;    va">
-<meta property="og:updated_time" content="2017-12-06T06:14:50.000Z">
+<meta property="og:description" content="2018,新的起点新的开始">
+<meta property="og:updated_time" content="2018-01-05T08:33:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决在苹果手机应用被挂起60秒倒计时停止的问题">
-<meta name="twitter:description" content="相信很多app里都会有获取手机验证码的按钮，验证码获取成功后这个按钮会进入60秒倒计时状态，倒计时期间按钮是不可点击的，在前端起到限制了用户获取成功后频繁请求重复获取的作用。  常规实现方式在H5页面里我们最容易想到常规的实现方式如下（这里提供的代码只是最基本的能说明问题用来演示用的Demo）：1234567891011121314151617181920&amp;lt;script&amp;gt;    va">
+<meta name="twitter:title" content="Hello 2018">
+<meta name="twitter:description" content="2018,新的起点新的开始">
 
     
     <link rel="alternative" href="/atom.xml" title="知行合一笃行日新" type="application/atom+xml">
@@ -76,7 +76,7 @@
 		<header class="article-info">
   <h1 itemprop="name">
     
-      <a href="/2017/12/04/60seconds/" title="解决在苹果手机应用被挂起60秒倒计时停止的问题" itemprop="url">解决在苹果手机应用被挂起60秒倒计时停止的问题</a>
+      <a href="/2017/12/04/hello2018/" title="Hello 2018" itemprop="url">Hello 2018</a>
   </h1>
   <p class="article-author">By
        
@@ -92,19 +92,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常规实现方式"><span class="toc-number">1.</span> <span class="toc-text">常规实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改进之后实现方式"><span class="toc-number">2.</span> <span class="toc-text">改进之后实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优化"><span class="toc-number">2.1.</span> <span class="toc-text">优化</span></a></li></ol></li></ol>
+			
 		
 		</div>
 		
-		<blockquote>
-<p>相信很多app里都会有获取手机验证码的按钮，验证码获取成功后这个按钮会进入60秒倒计时状态，倒计时期间按钮是不可点击的，在前端起到限制了用户获取成功后频繁请求重复获取的作用。</p>
-</blockquote>
-<h2 id="常规实现方式"><a href="#常规实现方式" class="headerlink" title="常规实现方式"></a>常规实现方式</h2><p>在H5页面里我们最容易想到常规的实现方式如下（这里提供的代码只是最基本的能说明问题用来演示用的Demo）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var timer = null; // 定时器</span><br><span class="line">    var count = 60; // 倒计时秒数</span><br><span class="line">    function getVerifyCode() &#123;</span><br><span class="line">        var target = event.target;</span><br><span class="line">        target.disabled = &apos;disabled&apos;;</span><br><span class="line">        timer = setInterval(setSecondNum,1000);</span><br><span class="line">        function setSecondNum() &#123;</span><br><span class="line">          count--;</span><br><span class="line">          if (count&gt;0) &#123;</span><br><span class="line">             target.innerHTML = count + &apos;秒&apos;; </span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            clearInterval(timer);</span><br><span class="line">            target.innerHTML = &apos;发送验证码&apos;;</span><br><span class="line">            target.disabled = false;</span><br><span class="line">            count = 60;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>如果是PC网页端这种写法能满足基本需求，在安卓手机上也没多大问题，因为安卓的应用在后台可以继续运行，倒计时会继续走着，但在苹果手机上就不行了，当获取验证码成功后，按钮倒计时开始后，如果这时打开其它应用当前app进入后台运行，进入后台的app就会被系统挂起，倒计时就会停止在一个值比如56秒处，当重新打开这个应用，倒计时会接着上次的值继续执行55…，其实也可以让应用进入后台依然运行着，但为了一个倒计时按钮不值当的，我们可以改进一下上面的常规写法来解决这个问题</p>
-<h2 id="改进之后实现方式"><a href="#改进之后实现方式" class="headerlink" title="改进之后实现方式"></a>改进之后实现方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var timer = null; // 定时器</span><br><span class="line">    var count = 60; // 倒计时秒数</span><br><span class="line">    function getVerifyCode() &#123;</span><br><span class="line">        var startTime = new Date().getTime(); // 获取点击按钮时的初始时间</span><br><span class="line">        var target = event.target;</span><br><span class="line">        target.disabled = &apos;disabled&apos;;</span><br><span class="line">        timer = setInterval(setSecondNum,1000);</span><br><span class="line">        function setSecondNum() &#123;</span><br><span class="line">          var endTime = new Date().getTime(); // 定时器每次调用该方法获取系统最新时间</span><br><span class="line">          var betweenSeconds = parseInt((endTime - startTime)/1000); // 计算出每次调用和初次点击之间间隔的秒数</span><br><span class="line">          count = 60 -  betweenSeconds; // 按钮上显示的倒计时数字用总的倒计时秒数减去两次之间间隔的秒数</span><br><span class="line">          if (count&gt;0) &#123;</span><br><span class="line">             target.innerHTML = count + &apos;秒&apos;; </span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            clearInterval(timer);</span><br><span class="line">            target.innerHTML = &apos;发送验证码&apos;;</span><br><span class="line">            target.disabled = false;</span><br><span class="line">            count = 60;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>改进之后在真机上测了一下确实解决了上述问题，但仔细观察还发现一个小瑕疵，倒计时过程中偶尔会出现秒数跳跃的问题，意思就是有时偶尔会出现38秒直接跳到36秒的情况，仔细看了一下改进之后的实现方式，发现问题出现在计算两次间隔秒数时使用的是<code>parseInt</code>方法导致的</p>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var timer = null; // 定时器</span><br><span class="line">    var count = 60; // 倒计时秒数</span><br><span class="line">    function getVerifyCode() &#123;</span><br><span class="line">        var startTime = new Date().getTime(); // 获取点击按钮时的初始时间</span><br><span class="line">        var target = event.target;</span><br><span class="line">        target.disabled = &apos;disabled&apos;;</span><br><span class="line">        timer = setInterval(setSecondNum,1000);</span><br><span class="line">        function setSecondNum() &#123;</span><br><span class="line">          var endTime = new Date().getTime(); // 定时器每次调用该方法获取系统最新时间</span><br><span class="line">          var betweenSeconds = Math.round((endTime - startTime)/1000); // 计算出每次调用和初次点击之间间隔的秒数</span><br><span class="line">          count = 60 -  betweenSeconds; // 按钮上显示的倒计时数字用总的倒计时秒数减去两次之间间隔的秒数</span><br><span class="line">          if (count&gt;0) &#123;</span><br><span class="line">             target.innerHTML = count + &apos;秒&apos;; </span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            clearInterval(timer);</span><br><span class="line">            target.innerHTML = &apos;发送验证码&apos;;</span><br><span class="line">            target.disabled = false;</span><br><span class="line">            count = 60;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>最终将<code>parseInt</code>替换为<code>Math.round</code>方法，问题解决。</p>
+		<p>2018,新的起点新的开始</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -117,7 +109,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/12/04/60seconds/" data-title="解决在苹果手机应用被挂起60秒倒计时停止的问题 | 知行合一笃行日新" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/12/04/hello2018/" data-title="Hello 2018 | 知行合一笃行日新" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -130,11 +122,19 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2017/12/04/gitskills/" title="如何在同一台电脑管理使用多个Git账号">
+  <strong>上一篇：</strong><br/>
+  <span>
+  如何在同一台电脑管理使用多个Git账号</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2017/12/04/hello-world/"  title="Hello World">
+<a href="/2017/12/04/safariSimulator/"  title="如何用Safari浏览器调试iOS模拟器中加载的H5页面">
  <strong>下一篇：</strong><br/> 
- <span>Hello World
+ <span>如何用Safari浏览器调试iOS模拟器中加载的H5页面
 </span>
 </a>
 </div>
@@ -153,7 +153,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常规实现方式"><span class="toc-number">1.</span> <span class="toc-text">常规实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改进之后实现方式"><span class="toc-number">2.</span> <span class="toc-text">改进之后实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优化"><span class="toc-number">2.1.</span> <span class="toc-text">优化</span></a></li></ol></li></ol>
+ 
  
   </div>
 
