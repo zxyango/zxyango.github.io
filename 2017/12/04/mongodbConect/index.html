@@ -4,28 +4,27 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>如何用Safari浏览器调试iOS模拟器中加载的H5页面 | 知行合一笃行日新</title>
+    <title>mongodb的启动、连接以及如何通过mongoose操作数据库 | 知行合一笃行日新</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zxyango">
     
 
     
-    <meta name="description" content="上下班总是在匆忙的赶路，到了公司永远做不完的需求，好不容易熬到了测试阶段，不知道从哪又冒出了一些莫名其妙的bug，此时我的内心是奔溃的但我会这样告诉自己：就像孩子一样，亲生的就要负责到底，bug是自己亲手写的，你不解决谁解决？所以是时候停下来梳理一下这些问题的解决思路和方法，思考一下还有没有更好的方式方法，也许积累沉淀">
+    <meta name="description" content="mongodb作为非关系型数据库的翘楚可以说使用越来越广泛，再加上其优雅的操作语法、完善的文档、强大的功能，受到越来越多开发者的青睐；本文主要介绍mac上如何启动本地数据库并连接，如何在js代码里通过mongoose操作mongodb数据库  一、通过终端启动本地服务端假如本地已经安装好mongodb，则在终端直接输入">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何用Safari浏览器调试iOS模拟器中加载的H5页面">
-<meta property="og:url" content="http://yoursite.com/2017/12/04/safariSimulator/index.html">
+<meta property="og:title" content="mongodb的启动、连接以及如何通过mongoose操作数据库">
+<meta property="og:url" content="http://yoursite.com/2017/12/04/mongodbConect/index.html">
 <meta property="og:site_name" content="知行合一笃行日新">
-<meta property="og:description" content="上下班总是在匆忙的赶路，到了公司永远做不完的需求，好不容易熬到了测试阶段，不知道从哪又冒出了一些莫名其妙的bug，此时我的内心是奔溃的但我会这样告诉自己：就像孩子一样，亲生的就要负责到底，bug是自己亲手写的，你不解决谁解决？所以是时候停下来梳理一下这些问题的解决思路和方法，思考一下还有没有更好的方式方法，也许积累沉淀下来的量变才能更快的引发质变吧，这期间唯一需要做的就是坚持！  一、iOS9里">
-<meta property="og:image" content="http://yoursite.com/img/denormal.png">
-<meta property="og:image" content="http://yoursite.com/img/normal.png">
-<meta property="og:image" content="http://yoursite.com/img/safarisetting.png">
-<meta property="og:image" content="http://yoursite.com/img/safarisimulator.png">
-<meta property="og:updated_time" content="2017-12-05T16:14:56.000Z">
+<meta property="og:description" content="mongodb作为非关系型数据库的翘楚可以说使用越来越广泛，再加上其优雅的操作语法、完善的文档、强大的功能，受到越来越多开发者的青睐；本文主要介绍mac上如何启动本地数据库并连接，如何在js代码里通过mongoose操作mongodb数据库  一、通过终端启动本地服务端假如本地已经安装好mongodb，则在终端直接输入sudo mongod需要输入密码，键入密码即可启动一个mongo的服务端；">
+<meta property="og:image" content="http://yoursite.com/img/mongoOne.png">
+<meta property="og:image" content="http://yoursite.com/img/mongoTwo.png">
+<meta property="og:image" content="http://yoursite.com/img/mongoThree.png">
+<meta property="og:updated_time" content="2018-06-13T12:32:04.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何用Safari浏览器调试iOS模拟器中加载的H5页面">
-<meta name="twitter:description" content="上下班总是在匆忙的赶路，到了公司永远做不完的需求，好不容易熬到了测试阶段，不知道从哪又冒出了一些莫名其妙的bug，此时我的内心是奔溃的但我会这样告诉自己：就像孩子一样，亲生的就要负责到底，bug是自己亲手写的，你不解决谁解决？所以是时候停下来梳理一下这些问题的解决思路和方法，思考一下还有没有更好的方式方法，也许积累沉淀下来的量变才能更快的引发质变吧，这期间唯一需要做的就是坚持！  一、iOS9里">
-<meta name="twitter:image" content="http://yoursite.com/img/denormal.png">
+<meta name="twitter:title" content="mongodb的启动、连接以及如何通过mongoose操作数据库">
+<meta name="twitter:description" content="mongodb作为非关系型数据库的翘楚可以说使用越来越广泛，再加上其优雅的操作语法、完善的文档、强大的功能，受到越来越多开发者的青睐；本文主要介绍mac上如何启动本地数据库并连接，如何在js代码里通过mongoose操作mongodb数据库  一、通过终端启动本地服务端假如本地已经安装好mongodb，则在终端直接输入sudo mongod需要输入密码，键入密码即可启动一个mongo的服务端；">
+<meta name="twitter:image" content="http://yoursite.com/img/mongoOne.png">
 
     
     <link rel="alternative" href="/atom.xml" title="知行合一笃行日新" type="application/atom+xml">
@@ -81,7 +80,7 @@
 		<header class="article-info">
   <h1 itemprop="name">
     
-      <a href="/2017/12/04/safariSimulator/" title="如何用Safari浏览器调试iOS模拟器中加载的H5页面" itemprop="url">如何用Safari浏览器调试iOS模拟器中加载的H5页面</a>
+      <a href="/2017/12/04/mongodbConect/" title="mongodb的启动、连接以及如何通过mongoose操作数据库" itemprop="url">mongodb的启动、连接以及如何通过mongoose操作数据库</a>
   </h1>
   <p class="article-author">By
        
@@ -97,22 +96,29 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、iOS9里弹框提示消失的底部按钮"><span class="toc-number">1.</span> <span class="toc-text">一、iOS9里弹框提示消失的底部按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、使用Safari连接模拟器调试H5页面"><span class="toc-number">2.</span> <span class="toc-text">二、使用Safari连接模拟器调试H5页面</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、通过终端启动本地服务端"><span class="toc-number">1.</span> <span class="toc-text">一、通过终端启动本地服务端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、连接本地服务端"><span class="toc-number">2.</span> <span class="toc-text">二、连接本地服务端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、如何通过mongoose连接本地服务并操作数据库"><span class="toc-number">3.</span> <span class="toc-text">三、如何通过mongoose连接本地服务并操作数据库</span></a></li></ol>
 		
 		</div>
 		
 		<blockquote>
-<p>上下班总是在匆忙的赶路，到了公司永远做不完的需求，好不容易熬到了测试阶段，不知道从哪又冒出了一些莫名其妙的bug，此时我的内心是奔溃的但我会这样告诉自己：就像孩子一样，亲生的就要负责到底，bug是自己亲手写的，你不解决谁解决？所以是时候停下来梳理一下这些问题的解决思路和方法，思考一下还有没有更好的方式方法，也许积累沉淀下来的量变才能更快的引发质变吧，这期间唯一需要做的就是坚持！</p>
+<p>mongodb作为非关系型数据库的翘楚可以说使用越来越广泛，再加上其优雅的操作语法、完善的文档、强大的功能，受到越来越多开发者的青睐；本文主要介绍mac上如何启动本地数据库并连接，如何在js代码里通过mongoose操作mongodb数据库</p>
 </blockquote>
-<h3 id="一、iOS9里弹框提示消失的底部按钮"><a href="#一、iOS9里弹框提示消失的底部按钮" class="headerlink" title="一、iOS9里弹框提示消失的底部按钮"></a>一、iOS9里弹框提示消失的底部按钮</h3><p>由于最近主要参与的App是基于Cordava框架的Hybrid混合模式的，里面很多功能模块是由H5页面来实现的，为了使页面保持统一和方便开发，我们封装了一套自己的基础组件，由于这套基础组件都是基于H5来实现的，如何保证在不同平台各个版本各个机型都能正常使用如何解决兼容性问题就是一个很棘手的问题，果然封装的弹窗提示框在iOS9版本里就显示不出底部的按钮了<img src="../../../../img/denormal.png" alt=""><br>而其它机型和浏览器正常情况下应该是这个样子：<br><img src="../../../../img/normal.png" alt=""><br>在chrome或火狐浏览器里，我们直接切换到开发者模式就可以很快定位到问题所在，可在iOS真机或模拟器里该如何调试呢？</p>
-<h3 id="二、使用Safari连接模拟器调试H5页面"><a href="#二、使用Safari连接模拟器调试H5页面" class="headerlink" title="二、使用Safari连接模拟器调试H5页面"></a>二、使用Safari连接模拟器调试H5页面</h3><p>既然要调试苹果系统里加载的内容，当然要用苹果自家的浏览器Safari了，一向以用户体验著称的苹果肯定也会替开发者想到遇到这种情况该如何调试的问题的。</p>
-<p>在模拟器里按照如下设置，Web Inspector默认是开启的</p>
+<h3 id="一、通过终端启动本地服务端"><a href="#一、通过终端启动本地服务端" class="headerlink" title="一、通过终端启动本地服务端"></a>一、通过终端启动本地服务端</h3><p>假如本地已经安装好mongodb，则在终端直接输入<br><code>sudo mongod</code><br>需要输入密码，键入密码即可启动一个mongo的服务端；</p>
+<h3 id="二、连接本地服务端"><a href="#二、连接本地服务端" class="headerlink" title="二、连接本地服务端"></a>二、连接本地服务端</h3><p>上面终端已经启动一个本地服务端，我们需要另起一个终端，输入<br><code>mongo --host 127.0.0.1:27017</code><br>即可连接本地服务端<br>当我们在连接终端看到右向的小箭头<img src="../../../../img/mongoOne.png" alt=""><br>服务端终端显示<img src="../../../../img/mongoTwo.png" alt=""></p>
+<p>即表示连接成功；</p>
+<p>这里记录一下操作mongodb数据库常用指令：</p>
 <ul>
-<li>设置——&gt; Safari ——&gt; Advanced ——&gt; Web Inspector<img src="../../../../img/safarisetting.png" alt=""></li>
-<li>在模拟器里打开自己的App，进入到要调试的页面</li>
-<li>打开Safari浏览器，开发 ——&gt; Simulator ——&gt;  选择要调试的页面（比如首页）<img src="../../../../img/safarisimulator.png" alt=""></li>
+<li><code>show dbs</code> 显示当前所有数据库</li>
+<li><code>db</code> 显示当前所在的数据库</li>
+<li><code>use myDatabase</code> 切换到你要切换的数据库</li>
+<li><code>show collections</code> 显示当前数据库所有的集合</li>
+<li><code>show tables</code> 也是用来查看当前库的集合</li>
+<li><code>db.getCollectionNames()</code> 查看文档中所有集合的名称，其返回值是一个数组</li>
+<li><code>db.getCollection(&quot;NAME&quot;)</code> 查看单个集合</li>
 </ul>
-<p>至此就可以愉快的在浏览器里调试手机里H5页面了，从此再也不用担心iOS系统里兼容性问题了。</p>
+<h3 id="三、如何通过mongoose连接本地服务并操作数据库"><a href="#三、如何通过mongoose连接本地服务并操作数据库" class="headerlink" title="三、如何通过mongoose连接本地服务并操作数据库"></a>三、如何通过mongoose连接本地服务并操作数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var mongoose = require(&apos;mongoose&apos;);// 首选需要通过npm i mongoose 来安装mongoose并引用</span><br><span class="line">mongoose.connect(&apos;mongodb://localhost/test&apos;);//连接本地哪个数据库，如果不存在会自动创建 </span><br><span class="line">var schema = new mongoose.Schema(&#123; name: &apos;string&apos;&#125;);</span><br><span class="line">var Kitten = mongoose.model(&apos;Kitten&apos;, schema);</span><br><span class="line">var fluffy = new Kitten(&#123; name: &apos;fluffy&apos; &#125;);</span><br><span class="line">// 保存写入数据库</span><br><span class="line">fluffy.save(function (err, fluffy) &#123;</span><br><span class="line">  if (err) return console.log(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这时我们可以通过<code>use test</code>将数据库切换到test下，然后通过<code>show collections</code>查看当前所有集合，最后通过<code>db.kittens.find()</code>查到刚刚我们插入的数据，如图：<br><img src="../../../../img/mongoThree.png" alt=""></p>
+<p>至此，我们如何通过终端启动本地数据库服务、如何通过终端连接本地数据库、如何在js代码里通过mongoose连接并操作数据库就介绍完了。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -125,7 +131,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/12/04/safariSimulator/" data-title="如何用Safari浏览器调试iOS模拟器中加载的H5页面 | 知行合一笃行日新" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/12/04/mongodbConect/" data-title="mongodb的启动、连接以及如何通过mongoose操作数据库 | 知行合一笃行日新" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -139,13 +145,21 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/12/04/mongodbConect/" title="mongodb的启动、连接以及如何通过mongoose操作数据库">
+ <a href="/2017/12/04/hello2018/" title="Hello 2018">
   <strong>上一篇：</strong><br/>
   <span>
-  mongodb的启动、连接以及如何通过mongoose操作数据库</span>
+  Hello 2018</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2017/12/04/safariSimulator/"  title="如何用Safari浏览器调试iOS模拟器中加载的H5页面">
+ <strong>下一篇：</strong><br/> 
+ <span>如何用Safari浏览器调试iOS模拟器中加载的H5页面
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -161,7 +175,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、iOS9里弹框提示消失的底部按钮"><span class="toc-number">1.</span> <span class="toc-text">一、iOS9里弹框提示消失的底部按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、使用Safari连接模拟器调试H5页面"><span class="toc-number">2.</span> <span class="toc-text">二、使用Safari连接模拟器调试H5页面</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、通过终端启动本地服务端"><span class="toc-number">1.</span> <span class="toc-text">一、通过终端启动本地服务端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、连接本地服务端"><span class="toc-number">2.</span> <span class="toc-text">二、连接本地服务端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、如何通过mongoose连接本地服务并操作数据库"><span class="toc-number">3.</span> <span class="toc-text">三、如何通过mongoose连接本地服务并操作数据库</span></a></li></ol>
  
   </div>
 
