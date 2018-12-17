@@ -4,23 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>如何在同一台电脑管理使用多个Git账号 | 知行合一笃行日新</title>
+    <title>git常用指令思维导图 | 知行合一笃行日新</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zxyango">
     
 
     
-    <meta name="description" content="最近帮朋友利用Github Pages搭建了一个小站，需要一个git账号。而我又有两个git账号，一个用来工作，一个用来学习，这就面临着如何在同一台电脑上同时管理三个git账号的问题。好了问题明确了，下面就是整理思路解决问题的过程。  思路Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数">
-<meta property="og:type" content="article">
-<meta property="og:title" content="如何在同一台电脑管理使用多个Git账号">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="git常用指令思维导图">
 <meta property="og:url" content="http://yoursite.com/2017/12/04/gitskills/index.html">
 <meta property="og:site_name" content="知行合一笃行日新">
-<meta property="og:description" content="最近帮朋友利用Github Pages搭建了一个小站，需要一个git账号。而我又有两个git账号，一个用来工作，一个用来学习，这就面临着如何在同一台电脑上同时管理三个git账号的问题。好了问题明确了，下面就是整理思路解决问题的过程。  思路Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。加密保证了数据的保密性和完整性。SSH More Githu">
-<meta property="og:updated_time" content="2017-12-06T02:11:04.000Z">
+<meta property="og:image" content="http://yoursite.com/img/Git_V2162.png">
+<meta property="og:updated_time" content="2018-12-17T06:45:22.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何在同一台电脑管理使用多个Git账号">
-<meta name="twitter:description" content="最近帮朋友利用Github Pages搭建了一个小站，需要一个git账号。而我又有两个git账号，一个用来工作，一个用来学习，这就面临着如何在同一台电脑上同时管理三个git账号的问题。好了问题明确了，下面就是整理思路解决问题的过程。  思路Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。加密保证了数据的保密性和完整性。SSH More Githu">
+<meta name="twitter:title" content="git常用指令思维导图">
+<meta name="twitter:image" content="http://yoursite.com/img/Git_V2162.png">
 
     
     <link rel="alternative" href="/atom.xml" title="知行合一笃行日新" type="application/atom+xml">
@@ -44,7 +43,7 @@
 				<h1 class="site-name"><a href="/" title="知行合一笃行日新">知行合一笃行日新</a></h1>
 				<h2 class="blog-motto">张向阳的技术博客</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -60,7 +59,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -76,71 +75,27 @@
 		<header class="article-info">
   <h1 itemprop="name">
     
-      <a href="/2017/12/04/gitskills/" title="如何在同一台电脑管理使用多个Git账号" itemprop="url">如何在同一台电脑管理使用多个Git账号</a>
+      <a href="/2017/12/04/gitskills/" title="git常用指令思维导图" itemprop="url">git常用指令思维导图</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zxyango" target="_blank" itemprop="author">zxyango</a>
 		
   <p class="article-time">
-    <time datetime="2017-12-04T13:52:59.000Z" itemprop="datePublished"> 发表于 2017-12-04</time>
+    <time datetime="2017-12-04T13:52:59.000Z" itemprop="datePublished"> Published 2017-12-04</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决步骤"><span class="toc-number">2.</span> <span class="toc-text">解决步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+			
 		
 		</div>
 		
-		<blockquote>
-<p>最近帮朋友利用Github Pages搭建了一个小站，需要一个git账号。而我又有两个git账号，一个用来工作，一个用来学习，这就面临着如何在同一台电脑上同时管理三个git账号的问题。好了问题明确了，下面就是整理思路解决问题的过程。</p>
-</blockquote>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。加密保证了数据的保密性和完整性。<a href="https://zh.wikipedia.org/wiki/Secure_Shell" target="_blank" rel="noopener">SSH More</a></p>
-<p>Github是基于SSH加密协议进行登录的，一般有两种登录方式：</p>
-<ul>
-<li>基于用户名密码的登录方式</li>
-<li>基于密钥的登录方式</li>
-</ul>
-<p>关于两者的区别可以参考<a href="http://www.cnblogs.com/wanglog/p/5484072.html" target="_blank" rel="noopener">浅谈远程登录时，ssh的加密原理</a></p>
-<p>显然，本文要谈的是基于秘钥的登录方式。根据ssh的加密原理我们得知：</p>
-<ul>
-<li>一个Github账号对应电脑上一对公钥私钥，几个账号就需要几对</li>
-</ul>
-<p>下面问题是：该如何在一台电脑上区分多个账号对应的多对公钥私钥？</p>
-<h2 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h2><p>1、通过文件名来区分不同账号生成的对应的公钥私钥文件</p>
-<ul>
-<li>比如a、b账号在.ssh文件夹下可以按这样命名:<code>a_id_rsa</code>、<code>a_id_rsa.pub</code>、<code>b_id_rsa</code>、<code>b_id_rsa.pub</code></li>
-</ul>
-<p>2、通过config配置文件自定义不同的Host并定位具体对应的公钥私钥文件</p>
-<ul>
-<li><p>在.ssh文件夹下新建config文件（注：文件没有后缀名，文件名就是config）</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">host hub.a.com </span><br><span class="line">hostname github.com</span><br><span class="line">User git</span><br><span class="line">IdentityFile ~/.ssh/a_id_rsa</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">host hub.b.com</span><br><span class="line">hostname github.com</span><br><span class="line">User git</span><br><span class="line">IdentityFile ~/.ssh/b_id_rsa</span><br><span class="line">PreferredAuthentications publickey</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>3、取消user.email、user.name全局配置</p>
-<ul>
-<li><code>git config -global unset user.email</code></li>
-<li><code>git config -global unset user.name</code></li>
-</ul>
-<p>4、在每个需要操作的repo单独设置</p>
-<ul>
-<li><code>git config user.email &quot;xxx@xxx.com&quot;</code></li>
-<li><code>git config user.name &quot;xxname&quot;</code></li>
-</ul>
-<p>5、再clone、push等操作时指定user、对应的host和相应的repo即可</p>
-<ul>
-<li><code>git clone git@hub.a.com:arepo/arepo.git</code></li>
-<li><code>git push git@hub.a.com:arepo/arepo.git</code></li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://gist.github.com/suziewong/4378434" target="_blank" rel="noopener">Git的多账号如何处理？</a></li>
-<li><a href="http://zwb.io/2016/03/16/%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E7%BB%91%E5%AE%9A%E4%B8%A4%E4%B8%AAgithub%E5%B8%90%E5%8F%B7%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">一台电脑绑定两个github帐号教程</a></li>
-<li><a href="http://mp.weixin.qq.com/s?__biz=MzI3NTE2NjYxNw==&amp;mid=2650600544&amp;idx=1&amp;sn=4e403162cb8bbf1bbb873247c14050f1&amp;chksm=f300b096c4773980101c5eb08026ffb4be6c1c70ccaddfe951a6750cfdb6c03d925fcc08b803&amp;mpshare=1&amp;scene=24&amp;srcid=0208jliRO8UL6uOtRAO3Bw4g#rd" target="_blank" rel="noopener">[git 进阶]同一电脑共存git 和 gitlab</a></li>
-</ul>
+		<p><img src="../../../../img/Git_V2162.png" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -153,7 +108,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/12/04/gitskills/" data-title="如何在同一台电脑管理使用多个Git账号 | 知行合一笃行日新" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/12/04/gitskills/" data-title="git常用指令思维导图 | 知行合一笃行日新" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -184,17 +139,17 @@
 <div id="SOHUCS" style="width: 95%;"></div>
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决步骤"><span class="toc-number">2.</span> <span class="toc-text">解决步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+ 
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -205,7 +160,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -287,11 +242,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -517,7 +472,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
